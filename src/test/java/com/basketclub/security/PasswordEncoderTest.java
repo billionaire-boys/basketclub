@@ -1,4 +1,4 @@
-package oldboy.security;
+package com.basketclub.security;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

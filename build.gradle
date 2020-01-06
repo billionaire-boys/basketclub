@@ -5,7 +5,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.techcourse'
+group = 'com.basketclub'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -15,11 +15,18 @@ repositories {
 
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'com.auth0:java-jwt:3.3.0'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1'
 
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+    runtimeOnly 'com.h2database:h2'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

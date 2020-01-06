@@ -1,12 +1,23 @@
-package oldboy.domain;
+package com.basketclub.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+
+import javax.persistence.*;
 
 @ToString
 @Getter
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class Player {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Enumerated(value = EnumType.STRING)
+    private PlayerRole role = PlayerRole.USER;
+
     private String name;
     private String email;
     private String password;

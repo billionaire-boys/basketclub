@@ -5,3 +5,8 @@
 build/
 .idea/
 out/
+generated/
+
+# Ignore 잡것들
+*.DS_Store
+.vscode

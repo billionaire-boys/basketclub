@@ -1,4 +1,4 @@
-package oldboy.domain;
+package com.basketclub.domain;
 
 
 import org.junit.jupiter.api.Test;
