@@ -5,3 +5,11 @@
 build/
 .idea/
 out/
+generated/
+
+# Secret Properties
+oauth.yml
+
+# Ignore 잡것들
+*.DS_Store
+.vscode
