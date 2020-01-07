@@ -16,20 +16,15 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 30)
-    private String name;
+    @Embedded
+    private SocialDetails socialDetails;
 
-    @Column(name = "email", length = 50)
-    private String email;
+    public Player(SocialDetails socialDetails) {
+        this.socialDetails = socialDetails;
+    }
 
-    @Column(name = "password")
-    private String password;
-
-    @Builder
-    public Player(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public Player(Long socialId, String nickname, MediaFile mediaFile) {
+        this.socialDetails = new SocialDetails(socialId, nickname, mediaFile);
     }
 
     public void update(Player edit) {
