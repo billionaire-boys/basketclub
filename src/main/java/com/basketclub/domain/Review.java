@@ -25,7 +25,7 @@ public class Review {
     private Player target;
 
     @Builder
-    public Review(ReviewScore score, String contents, Player target) {
+    public Review(Player target, ReviewScore score, String contents) {
         this.score = score;
         this.contents = contents;
         this.target = target;
