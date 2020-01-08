@@ -10,16 +10,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import javax.servlet.Filter;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final KakaoAuthenticationProvider kakaoAuthenticationProvider;
-    private final KakaoAuthenticationFilter kakaoAuthenticationFilter;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -39,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/login").permitAll()
+                .antMatchers("/", "/login", "/oauth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -50,7 +48,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(kakaoAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
-    private Filter kakaoAuthenticationFilter() {
+    private AbstractAuthenticationProcessingFilter kakaoAuthenticationFilter() throws Exception {
+        AbstractAuthenticationProcessingFilter kakaoAuthenticationFilter = new KakaoAuthenticationFilter("/oauth/kakao");
+        kakaoAuthenticationFilter.setAuthenticationManager(super.authenticationManagerBean());
         return kakaoAuthenticationFilter;
     }
 

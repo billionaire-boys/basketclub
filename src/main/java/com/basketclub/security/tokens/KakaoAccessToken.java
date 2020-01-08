@@ -1,4 +1,4 @@
-package com.basketclub.web;
+package com.basketclub.security.tokens;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
