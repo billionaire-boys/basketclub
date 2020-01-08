@@ -14,6 +14,9 @@ public class SocialDetails {
     @Column(name = "social_id")
     private Long socialId;
 
+    @Enumerated(EnumType.STRING)
+    private SocialProvider socialProvider;
+
     @Column(name = "nickname")
     private String nickname;
 
@@ -21,10 +24,9 @@ public class SocialDetails {
     @OneToOne(cascade = CascadeType.PERSIST)
     private MediaFile mediaFile;
 
-    @Builder
-    public SocialDetails(Long socialId, String nickname, MediaFile mediaFile) {
-        this.socialId = socialId;
+    public SocialDetails(SocialProvider socialProvider, String nickname, MediaFile mediaFile) {
         this.nickname = nickname;
+        this.socialProvider = socialProvider;
         this.mediaFile = mediaFile;
     }
 }

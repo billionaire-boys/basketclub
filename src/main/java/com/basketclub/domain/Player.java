@@ -9,7 +9,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "PLAYER", indexes = @Index(columnList = "email"), uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "PLAYER", indexes = @Index(columnList = "social_id"))
 public class Player {
 
     @Id
@@ -23,17 +23,7 @@ public class Player {
         this.socialDetails = socialDetails;
     }
 
-    public Player(Long socialId, String nickname, MediaFile mediaFile) {
-        this.socialDetails = new SocialDetails(socialId, nickname, mediaFile);
-    }
-
-    public void update(Player edit) {
-        this.name = edit.name;
-        this.email = edit.email;
-        this.password = edit.password;
-    }
-
-    public boolean isMatchPassword(String password) {
-        return this.password.equals(password);
+    public Player(SocialProvider provider, String nickname, MediaFile mediaFile) {
+        this.socialDetails = new SocialDetails(provider, nickname, mediaFile);
     }
 }
