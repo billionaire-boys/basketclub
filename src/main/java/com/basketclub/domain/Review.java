@@ -17,13 +17,13 @@ public class Review extends BaseEntity {
     private String contents;
 
     @ManyToOne
-    @JoinColumn(name = "player_id")
+    @JoinColumn(name = "player_id", nullable = false)
     private Player target;
 
     @Builder
     public Review(Player target, ReviewScore score, String contents) {
+        this.target = target;
         this.score = score;
         this.contents = contents;
-        this.target = target;
     }
 }

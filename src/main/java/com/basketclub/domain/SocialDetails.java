@@ -24,9 +24,11 @@ public class SocialDetails {
     @OneToOne(cascade = CascadeType.PERSIST)
     private MediaFile mediaFile;
 
-    public SocialDetails(SocialProvider socialProvider, String nickname, MediaFile mediaFile) {
-        this.nickname = nickname;
+    @Builder
+    public SocialDetails(SocialProvider socialProvider, Long socialId, String nickname, MediaFile mediaFile) {
         this.socialProvider = socialProvider;
+        this.socialId = socialId;
+        this.nickname = nickname;
         this.mediaFile = mediaFile;
     }
 }
