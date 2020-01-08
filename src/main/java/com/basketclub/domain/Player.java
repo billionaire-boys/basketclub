@@ -1,20 +1,21 @@
 package com.basketclub.domain;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 
 @ToString
 @Getter
-@EqualsAndHashCode(of = "id")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "PLAYER", indexes = @Index(columnList = "social_id"))
-public class Player {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Player extends BaseEntity {
 
     @Embedded
     private SocialDetails socialDetails;

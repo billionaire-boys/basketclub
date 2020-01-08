@@ -4,20 +4,16 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@EqualsAndHashCode(of = "id")
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Review {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Review extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private ReviewScore score;
 
+    @Lob
     private String contents;
 
     @ManyToOne
