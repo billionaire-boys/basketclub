@@ -32,6 +32,11 @@ public class ReviewService {
     public void deleteById(long reviewId) {
         reviewRepository.deleteById(reviewId);
     }
+
+    @Transactional(readOnly = true)
+    public List<Review> findAll() {
+        return reviewRepository.findAll();
+    }
 }
 
 
