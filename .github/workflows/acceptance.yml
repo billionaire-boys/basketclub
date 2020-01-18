@@ -3,7 +3,7 @@ name: Java CI
 on: [pull_request]
 
 jobs:
-  build:
+  acceptanceTest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
