@@ -20,4 +20,4 @@ spring:
     username: sa
     password: password
 
-  oauth.property: oauth.yml
+  oauth.property: sample-oauth.yml
