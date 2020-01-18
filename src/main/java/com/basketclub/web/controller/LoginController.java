@@ -14,7 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/")
-public class MainController {
+public class LoginController {
     private final OauthProperties oauthProperties;
 
     @GetMapping
@@ -23,7 +23,7 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public ModelAndView oauthLogin() {
+    public ModelAndView loginPage() {
         UriComponents build = UriComponentsBuilder.fromHttpUrl(oauthProperties.getRequestUrl())
                 .queryParam("client_id", oauthProperties.getClientId())
                 .queryParam("redirect_uri", oauthProperties.getRedirectUrl())

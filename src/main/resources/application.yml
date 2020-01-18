@@ -19,3 +19,5 @@ spring:
     url: jdbc:h2:mem:basketclub
     username: sa
     password: password
+
+  oauth.property: oauth.yml

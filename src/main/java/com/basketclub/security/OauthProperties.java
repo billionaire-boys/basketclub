@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 @Data
 @Component
-@PropertySource(value = "classpath:oauth.yml", factory = YmlPropertiesFactory.class)
+@PropertySource(value = "classpath:${spring.oauth.property}", factory = YmlPropertiesFactory.class)
 public class OauthProperties implements InitializingBean {
 
     @Value("${client.requestUrl:#{null}}")

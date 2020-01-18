@@ -1,0 +1,6 @@
+client:
+  requestUrl: https://kauth.kakao.com/oauth/authorize
+  accessTokenUrl: https://kauth.kakao.com/oauth/token
+  clientId: clientId
+  redirectUrl: http://localhost:8080/oauth/kakao
+  resourceUrl: https://kapi.kakao.com/v2/user/me
