@@ -38,15 +38,7 @@ public class LoginTest {
 
     @BeforeEach
     void setUp() {
-        socialDetails = SocialDetails.builder()
-                .socialId(1L)
-                .nickname("nick")
-                .mediaFile(new MediaFile(""))
-                .socialProvider(SocialProvider.KAKAO)
-                .build();
-
-        given(kakaoOauthService.getSocialDetails(anyString()))
-                .willReturn(socialDetails);
+        throw new IllegalArgumentException();
     }
 
     @Test
